@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/white">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        style="@style/TextViewApp.SubHeader"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line"
+        android:padding="@dimen/padding_normal"
+        android:text="@string/menh_gia_the" />
+
+    <TextView
+        android:id="@+id/tvContent"
+        style="@style/TextViewApp.SubHeader"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/line"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginEnd="@dimen/base10"
+        android:layout_marginRight="@dimen/base10"
+        android:padding="@dimen/padding_normal"
+        android:text="@string/phuong_thuc_thanh_toan_null"
+        android:visibility="gone"
+        tools:visibility="visible" />
+
+</RelativeLayout>

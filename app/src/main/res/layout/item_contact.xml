@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@android:color/white"
+    android:foreground="?attr/selectableItemBackground">
+
+    <RelativeLayout
+        android:id="@+id/root"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true">
+
+        <FrameLayout
+            android:id="@+id/avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="@dimen/base5"
+            android:layout_marginLeft="@dimen/base5"
+            android:background="@android:color/transparent">
+
+            <electronicwallet.lyhoangvinh.com.widget.CircleImageView xmlns:civ="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/imvAvatar"
+                android:layout_width="@dimen/base50"
+                android:layout_height="@dimen/base50"
+                android:scaleType="centerCrop"
+                civ:civ_border_color="#FFFFFF"
+                civ:civ_border_width="1dp"
+                android:src="@drawable/ic_account_circle_black_48dp" />
+        </FrameLayout>
+
+        <TextView
+            android:id="@+id/tvName"
+            style="@style/TextViewApp.SubHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_default"
+            android:layout_marginLeft="@dimen/margin_default"
+            android:layout_toEndOf="@+id/avatar"
+            android:layout_toRightOf="@+id/avatar"
+            android:maxLines="1"
+            android:textColor="@color/colorAccent"
+            android:textSize="@dimen/text_small"
+            tools:text="NV001" />
+
+        <TextView
+            android:id="@+id/tvPhoneNumber"
+            style="@style/TextViewApp.SubHeader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvName"
+            android:layout_alignStart="@+id/tvName"
+            android:layout_alignLeft="@+id/tvName"
+            android:layout_marginTop="@dimen/base5"
+            android:textColor="@color/dark_text"
+            android:textSize="@dimen/text_small"
+            tools:text="Lý Hoàng Vinh" />
+
+
+    </RelativeLayout>
+
+</RelativeLayout>

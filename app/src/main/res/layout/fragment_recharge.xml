@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <include
+        android:id="@+id/toolbar"
+        layout="@layout/view_toolbar" />
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/rl"
+        android:layout_below="@+id/toolbar">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rcv"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </FrameLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/dark_text" />
+
+        <TextView
+            android:id="@+id/tv1"
+            style="@style/TextViewApp.SubHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/line"
+            android:padding="@dimen/padding_normal"
+            android:text="Thanh toán"
+            android:textStyle="bold" />
+
+
+        <TextView
+            android:id="@+id/tvRecharger"
+            style="@style/TextViewApp.SubHeader"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentRight="true"
+            android:drawablePadding="@dimen/padding_normal"
+            android:padding="@dimen/padding_normal"
+            tools:text="10.0000000.000000000.00000000d" />
+
+        <Button
+            android:id="@+id/btnConfirm"
+            style="@style/ButtonApp.Accent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tv1"
+            android:layout_marginStart="@dimen/base10"
+            android:layout_marginTop="@dimen/padding_normal"
+            android:layout_marginEnd="@dimen/base10"
+            android:layout_marginBottom="@dimen/spacing_normal"
+            android:text="@string/tiep_tuc"
+            android:textAllCaps="false" />
+    </RelativeLayout>
+</RelativeLayout>

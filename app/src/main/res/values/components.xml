@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="TextViewApp" parent="@android:style/Widget.TextView">
+        <item name="android:textSize">@dimen/text_normal</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textStyle">normal</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="TextViewApp.SingleLine">
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+    <style name="TextViewApp.Light">
+        <item name="android:textColor">@color/colorTextSecond</item>
+    </style>
+    <style name="TextViewApp.Light.Small">
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+    <style name="TextViewApp.SubHeader">
+        <item name="android:minHeight">@dimen/button_height</item>
+    </style>
+    <style name="TextViewApp.SubHeader.Action">
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+    </style>
+
+    <style name="LineItem_Doc">
+        <item name="android:paddingTop">@dimen/spacing_micro</item>
+        <item name="android:paddingBottom">@dimen/spacing_micro</item>
+    </style>
+    <style name="LineItem_Doc.Editor">
+        <item name="android:gravity">center_vertical</item>
+    </style>
+
+    <style name="LineItem_Doc_Icon">
+        <item name="android:layout_width">22dp</item>
+        <item name="android:layout_height">22dp</item>
+        <item name="android:scaleType">fitCenter</item>
+        <item name="android:layout_marginTop">2dp</item>
+        <item name="android:layout_marginRight">12dp</item>
+        <item name="android:layout_marginBottom">8dp</item>
+        <item name="android:layout_marginLeft">0dp</item>
+    </style>
+    <style name="LineItem_Doc_Icon.Editor">
+        <item name="android:layout_marginTop">0dp</item>
+        <item name="android:layout_marginBottom">0dp</item>
+    </style>
+    <style name="LineItem_Doc_Icon.Editor.MultiLine">
+        <item name="android:layout_marginTop">4dp</item>
+        <item name="android:layout_gravity">center_vertical|top</item>
+    </style>
+    <style name="LineItem_Doc_Title" parent="@style/TextViewApp.Light">
+        <item name="android:textSize">@dimen/text_small</item>
+    </style>
+
+    <style name="LineItem_Doc.SubHeader">
+        <item name="android:foreground">?attr/selectableItemBackground</item>
+        <item name="android:minHeight">@dimen/cardview_subheader_height</item>
+        <item name="android:paddingTop">@dimen/cardview_unpadding</item>
+        <item name="android:paddingBottom">@dimen/cardview_unpadding</item>
+        <item name="android:paddingLeft">@dimen/cardview_padding</item>
+        <item name="android:paddingStart">@dimen/cardview_padding</item>
+        <item name="android:paddingRight">@dimen/cardview_padding</item>
+        <item name="android:paddingEnd">@dimen/cardview_padding</item>
+        <item name="android:gravity">center_vertical</item>
+    </style>
+    <style name="LineItem_Doc.SubHeader.NoPadding">
+        <item name="android:paddingLeft">@dimen/cardview_unpadding</item>
+        <item name="android:paddingStart">@dimen/cardview_unpadding</item>
+        <item name="android:paddingRight">@dimen/cardview_unpadding</item>
+        <item name="android:paddingEnd">@dimen/cardview_unpadding</item>
+    </style>
+    <style name="LineItem_Doc.SubHeader.TextHeader" parent="@style/TextViewApp.SubHeader">
+        <item name="android:layout_gravity">center_vertical|left|start</item>
+    </style>
+    <!--<style name="LineItem_Doc.SubHeader.TextNotify" parent="@style/TextViewApp.SubHeader">-->
+        <!--<item name="android:drawablePadding">@dimen/spacing_normal</item>-->
+        <!--<item name="android:drawableRight">@drawable/ic_arrow_right</item>-->
+        <!--<item name="android:drawableEnd">@drawable/ic_arrow_right</item>-->
+        <!--<item name="android:layout_gravity">center_vertical|right|end</item>-->
+    <!--</style>-->
+
+    <style name="EditTextApp">
+        <item name="android:minHeight">@dimen/input_height</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textColorHint">@color/colorTextHint</item>
+        <item name="android:textSize">@dimen/text_normal</item>
+        <item name="android:gravity">center_vertical</item>
+        <item name="android:paddingLeft">8dp</item>
+        <item name="android:paddingRight">8dp</item>
+    </style>
+
+    <style name="EditTextApp.Border">
+        <item name="android:background">@drawable/input_normal</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textColorHint">#999999</item>
+    </style>
+
+    <style name="EditTextApp.Line">
+        <item name="fontPath">@string/font_light</item>
+        <item name="android:background">@drawable/input_custom</item>
+        <item name="android:minHeight">@dimen/input_height_micro</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textColorHint">@color/colorTextSecond</item>
+        <item name="android:paddingLeft">0dp</item>
+        <item name="android:paddingStart">0dp</item>
+        <item name="android:paddingRight">0dp</item>
+        <item name="android:paddingEnd">0dp</item>
+    </style>
+    <style name="EditTextApp.Line.MultiLine_Unlimited">
+        <item name="android:gravity">center_vertical|left|start|top</item>
+        <item name="android:paddingTop">@dimen/spacing_normal</item>
+        <item name="android:paddingBottom">@dimen/spacing_normal</item>
+    </style>
+
+    <style name="TextViewApp.EditLine">
+        <item name="android:minHeight">@dimen/input_height_micro</item>
+        <item name="android:background">@drawable/input_custom</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textColorHint">@color/colorTextSecond</item>
+    </style>
+
+    <style name="TextViewApp.EditLine.Dropdown">
+        <item name="android:drawablePadding">4dp</item>
+        <item name="android:drawableRight">@drawable/ic_arrow_drop_down_black_24dp</item>
+        <item name="android:drawableEnd">@drawable/ic_arrow_drop_down_black_24dp</item>
+        <item name="android:paddingRight">@dimen/spacing_normal</item>
+        <item name="android:paddingEnd">@dimen/spacing_normal</item>
+    </style>
+
+    <style name="TextViewApp.EditLine.SingleLine">
+        <item name="android:maxLines">1</item>
+        <item name="android:singleLine">true</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="MyButtonApp" parent="Widget.AppCompat.Button">
+        <item name="android:minHeight">@dimen/button_height</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/colorText</item>
+        <item name="android:textSize">@dimen/text_large</item>
+        <item name="android:gravity">center</item>
+        <item name="android:paddingLeft">10dp</item>
+        <item name="android:paddingRight">10dp</item>
+    </style>
+
+    <style name="ButtonApp" parent="MyButtonApp" />
+
+    <style name="ButtonApp.White">
+        <item name="android:background">@drawable/button_white</item>
+        <item name="android:textColor">@color/colorText</item>
+    </style>
+
+    <style name="ButtonApp.Accent">
+        <item name="android:background">@drawable/button_accent</item>
+        <item name="android:textColor">@color/white</item>
+    </style>
+
+</resources>

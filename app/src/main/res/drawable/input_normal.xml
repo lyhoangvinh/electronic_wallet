@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_enabled="false">
+        <shape android:shape="rectangle">
+            <solid android:color="#c6c6c6" />
+            <stroke android:width="1dp" android:color="#c6c6c6" />
+            <corners android:radius="@dimen/input_radius" />
+            <padding android:left="@dimen/input_padding"
+                android:right="@dimen/input_padding" />
+        </shape>
+    </item>
+    <!-- disable -->
+    <item android:state_enabled="true" android:state_focused="true">
+        <shape android:shape="rectangle">
+            <solid android:color="@color/white_gray" />
+            <stroke android:width="0.5dp" android:color="@color/divider_edit_text" />
+            <corners android:radius="@dimen/input_radius" />
+            <padding android:left="@dimen/input_padding" android:right="@dimen/input_padding" />
+        </shape>
+    </item>
+    <!-- focused -->
+    <item>
+        <shape android:shape="rectangle">
+            <solid android:color="@android:color/white" />
+            <stroke android:width="0.5dp" android:color="@color/divider_edit_text" />
+            <corners android:radius="@dimen/input_radius" />
+            <padding android:left="@dimen/input_padding" android:right="@dimen/input_padding" />
+        </shape>
+    </item>
+    <!-- default -->
+</selector>

@@ -1,0 +1,29 @@
+<resources>
+    <string name="app_name">My Electronic Wallet</string>
+    <string name="my_name_is_vinh">Lý Hoàng Vinh</string>
+    <string name="empty_no_data">Không có dữ liệu.</string>
+    <string name="empty_no_internet">Không có kết nối Internet.</string>
+    <string name="empty_error_loading">Error loading. Tap to retry !</string>
+    <string name="empty_no_attach_list">Không có File đính kèm.</string>
+
+    <string name="nhap_sdt_cua_ban">Nhập số điện thoại của bạn:</string>
+    <string name="nhap_sdt">Nhập số điện thoại</string>
+    <string name="tiep_tuc">Tiếp tục</string>
+    <string name="chon_tu_danh_ba">Chọn từ danh bạ</string>
+
+    <string name="action_allow">Cho phép</string>
+    <string name="action_deny">Từ chối</string>
+    <string name="menh_gia_the">MỆNH GIÁ THẺ</string>
+    <string name="so_luong">Số lượng</string>
+    <string name="money">%sđ</string>
+    <string name="phuong_thuc_thanh_toan_null">/./</string>
+    <string name="mua_ma_the">Mua mã thẻ</string>
+    <string name="phương_thuc_thanh_toan">PHƯƠNG THỨC THANH TOÁN</string>
+    <string name="chon_phuong_thuoc_thanh_toan">CHỌN PHƯƠNG THỨC THANH TOÁN</string>
+
+    <!-- permission -->
+    <string name="dialog_message_permission_settings">Ứng dụng có thể hoạt động không chính xác nếu không được cấp quyền. Mở màn hình Settings để chỉnh sửa quyền truy cập.</string>
+    <string name="dialog_title_permission_settings">Cấp quyền truy cập</string>ring>
+    <string name="permission_rationale_file_access">Vui lòng cấp quyền truy cập cho ứng dụng.</string>
+    <string name="permission_rationale_location">Vui lòng cấp quyền truy cập Location cho ứng dụng. Nếu không được cấp quyền ứng dụng sẽ không xác định vị trí hiện tại của bạn.</string>
+</resources>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/input_custom_layer_disable" android:state_enabled="false" />
+    <!-- disable -->
+    <item android:drawable="@drawable/input_custom_layer_focus" android:state_enabled="true" android:state_pressed="true" />
+    <!-- pressed -->
+    <item android:drawable="@drawable/input_custom_layer_focus" android:state_enabled="true" android:state_focused="true" />
+    <!-- focused -->
+    <item android:drawable="@drawable/input_custom_layer_default" />
+    <!-- default -->
+</selector>
