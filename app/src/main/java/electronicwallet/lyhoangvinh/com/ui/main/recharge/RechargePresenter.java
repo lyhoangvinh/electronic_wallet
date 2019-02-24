@@ -32,14 +32,14 @@ public class RechargePresenter extends BasePresenter<RechargeView> {
     List<Item> hasItem() {
         List<Item> items = new ArrayList<>();
         List<Money> moneys = new ArrayList<>();
-        moneys.add(new Money(10000, "10.000", true));
-        moneys.add(new Money(20000, "20.000", false));
-        moneys.add(new Money(30000, "30.000", false));
-        moneys.add(new Money(50000, "50.000", false));
-        moneys.add(new Money(100000, "100.000", false));
-        moneys.add(new Money(200000, "200.000", false));
-        moneys.add(new Money(300000, "300.000", false));
-        moneys.add(new Money(500000, "500.000", false));
+        moneys.add(new Money(10000, true));
+        moneys.add(new Money(20000, false));
+        moneys.add(new Money(30000, false));
+        moneys.add(new Money(50000, false));
+        moneys.add(new Money(100000, false));
+        moneys.add(new Money(200000, false));
+        moneys.add(new Money(300000, false));
+        moneys.add(new Money(500000, false));
         items.add(new TitleItem(context.getString(R.string.menh_gia_the)));
         items.add(new MoneyItem(moneys));
         items.add(new DividerItem());

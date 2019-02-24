@@ -35,14 +35,14 @@ public class MoneyAdapter extends BaseAdapter<Money, MoneyAdapter.MoneyViewHolde
 
     @Override
     protected void onBindViewHolder(MoneyViewHolder holder, @NonNull Money dto, int position) {
-        holder.tvMoney.setText(String.format(holder.tvMoney.getContext().getString(R.string.money), dto.getContent()));
+        holder.tvMoney.setText(Utils.formatVnCurrence(String.valueOf(dto.getPrice())));
 
         if (dto.isTick()) {
             holder.tvMoney.setTextColor(holder.tvMoney.getContext().getResources().getColor(R.color.white));
             Utils.setBackground(holder.root.getContext(), holder.root, R.drawable.bg_blue_light);
         } else {
             holder.tvMoney.setTextColor(holder.tvMoney.getContext().getResources().getColor(R.color.dark_text));
-            Utils.setBackground(holder.root.getContext(), holder.root, R.drawable.bg_white_light);
+            Utils.setBackground(holder.root.getContext(), holder.root, R.drawable.button_blue);
         }
 
         holder.itemView.setOnClickListener(view -> {

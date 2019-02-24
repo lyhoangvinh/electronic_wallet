@@ -3,9 +3,14 @@ package electronicwallet.lyhoangvinh.com.utils;
 import android.content.Context;
 import android.support.annotation.DrawableRes;
 import android.support.v4.content.ContextCompat;
+import android.text.TextUtils;
 import android.view.View;
 
 import java.lang.ref.WeakReference;
+import java.text.DecimalFormat;
+import java.text.NumberFormat;
+import java.util.Currency;
+import java.util.Locale;
 
 public class Utils {
     public static void setClickable(View view, boolean clickable) {
@@ -29,12 +34,31 @@ public class Utils {
         }
     }
 
-    public static void setBackground(Context context, View view, @DrawableRes int id){
+    public static void setBackground(Context context, View view, @DrawableRes int id) {
         final int sdk = android.os.Build.VERSION.SDK_INT;
-        if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
-            view.setBackgroundDrawable(ContextCompat.getDrawable(context, id) );
+        if (sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            view.setBackgroundDrawable(ContextCompat.getDrawable(context, id));
         } else {
             view.setBackground(ContextCompat.getDrawable(context, id));
         }
+    }
+
+    public static String formatVnCurrence(String price) {
+        NumberFormat format = new DecimalFormat("#,##0.00");// #,##0.00 ¤ (¤:// Currency symbol)
+        format.setCurrency(Currency.getInstance(Locale.US));//Or default locale
+
+        price = (!TextUtils.isEmpty(price)) ? price : "0";
+        price = price.trim();
+        price = format.format(Double.parseDouble(price));
+        price = price.replaceAll(",", "\\.");
+
+        if (price.endsWith(".00")) {
+            int centsIndex = price.lastIndexOf(".00");
+            if (centsIndex != -1) {
+                price = price.substring(0, centsIndex);
+            }
+        }
+        price = String.format("%s đ", price);
+        return price;
     }
 }

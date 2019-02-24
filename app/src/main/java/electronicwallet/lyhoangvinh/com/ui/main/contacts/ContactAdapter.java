@@ -14,7 +14,7 @@ import electronicwallet.lyhoangvinh.com.local.model.MyContact;
 
 public class ContactAdapter extends BaseAdapter<MyContact, ContactAdapter.ContactViewHolder> {
 
-    public ContactAdapter(@NonNull List<MyContact> data) {
+    ContactAdapter(@NonNull List<MyContact> data) {
         super(data);
     }
 
@@ -41,7 +41,7 @@ public class ContactAdapter extends BaseAdapter<MyContact, ContactAdapter.Contac
         @BindView(R.id.tvPhoneNumber)
         TextView tvPhoneNumber;
 
-        public ContactViewHolder(View itemView) {
+        ContactViewHolder(View itemView) {
             super(itemView);
         }
     }

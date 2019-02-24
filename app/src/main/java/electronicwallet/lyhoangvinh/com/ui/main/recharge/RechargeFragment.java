@@ -19,6 +19,7 @@ import electronicwallet.lyhoangvinh.com.R;
 import electronicwallet.lyhoangvinh.com.base.fragment.BasePresenterFragment;
 import electronicwallet.lyhoangvinh.com.events.MoneyEvent;
 import electronicwallet.lyhoangvinh.com.utils.NavigatorHelper;
+import electronicwallet.lyhoangvinh.com.utils.Utils;
 
 public class RechargeFragment extends BasePresenterFragment<RechargeView, RechargePresenter> implements RechargeView {
 
@@ -62,11 +63,17 @@ public class RechargeFragment extends BasePresenterFragment<RechargeView, Rechar
         rcv.setLayoutManager(new LinearLayoutManager(ctx, LinearLayoutManager.VERTICAL, false));
         rcv.setAdapter(adapter);
         adapter.setData(getPresenter().hasItem());
-        tvRecharger.setText("0đ");
+        tvRecharger.setText("0 đ");
     }
 
-    @OnClick(R.id.imvBack)
-    public void back() {
+    @OnClick({R.id.imvBack, R.id.btnConfirm})
+    public void onClicks(View v) {
+        switch (v.getId()){
+            case R.id.imvBack:
+                break;
+            case R.id.btnConfirm:
+                break;
+        }
         onBackPressed();
     }
 
@@ -85,7 +92,7 @@ public class RechargeFragment extends BasePresenterFragment<RechargeView, Rechar
 
         int sum = money * count;
 
-        tvRecharger.setText(String.format(getString(R.string.money), String.valueOf(sum)));
+        tvRecharger.setText(Utils.formatVnCurrence(String.valueOf(sum)));
     }
 
     @Override
