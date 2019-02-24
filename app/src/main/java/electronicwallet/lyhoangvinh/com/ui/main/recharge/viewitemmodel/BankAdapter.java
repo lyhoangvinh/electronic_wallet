@@ -1,10 +1,13 @@
 package electronicwallet.lyhoangvinh.com.ui.main.recharge.viewitemmodel;
 
+import android.annotation.SuppressLint;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.List;
 
@@ -12,14 +15,19 @@ import butterknife.BindView;
 import electronicwallet.lyhoangvinh.com.R;
 import electronicwallet.lyhoangvinh.com.base.adapter.BaseAdapter;
 import electronicwallet.lyhoangvinh.com.base.adapter.BaseViewHolder;
+import electronicwallet.lyhoangvinh.com.base.interfaces.PlainConsumer;
+import electronicwallet.lyhoangvinh.com.events.MoneyEvent;
 import electronicwallet.lyhoangvinh.com.local.model.Bank;
 import electronicwallet.lyhoangvinh.com.utils.Utils;
 
 public class BankAdapter extends BaseAdapter<Bank, BankAdapter.BankViewHolder> {
+    private PlainConsumer<String> onClickItemListener;
 
-    public BankAdapter(@NonNull List<Bank> data) {
+    BankAdapter(@NonNull List<Bank> data, PlainConsumer<String> onClickItemListener) {
         super(data);
+        this.onClickItemListener = onClickItemListener;
     }
+
 
     @Override
     public int getItemLayoutResource() {
@@ -32,7 +40,7 @@ public class BankAdapter extends BaseAdapter<Bank, BankAdapter.BankViewHolder> {
     }
 
     @Override
-    protected void onBindViewHolder(BankViewHolder holder, @NonNull Bank dto, int position) {
+    protected void onBindViewHolder(BankViewHolder holder, @SuppressLint("RecyclerView") @NonNull Bank dto, int position) {
         holder.tvName.setText(dto.getTitle());
         Utils.setImageFromUrl(dto.getUrl(), holder.imv);
         if (dto.isTick()) {
@@ -42,12 +50,23 @@ public class BankAdapter extends BaseAdapter<Bank, BankAdapter.BankViewHolder> {
             holder.tvName.setTextColor(holder.tvName.getContext().getResources().getColor(R.color.dark_text));
             Utils.setBackground(holder.root.getContext(), holder.root, R.drawable.button_blue);
         }
-        holder.itemView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-
+        holder.itemView.setOnClickListener(view -> {
+            if (onClickItemListener != null) {
+                onClickItemListener.accept(dto.getTitle());
             }
+            MoneyEvent moneyEvent = new MoneyEvent();
+            moneyEvent.setBankName(dto.getTitle());
+            EventBus.getDefault().post(moneyEvent);
+            changeTick(position);
         });
+    }
+
+    private void changeTick(int i) {
+        for (Bank dto : getData()) {
+            dto.setTick(false);
+        }
+        getData().get(i).setTick(true);
+        notifyDataSetChanged();
     }
 
     class BankViewHolder extends BaseViewHolder {

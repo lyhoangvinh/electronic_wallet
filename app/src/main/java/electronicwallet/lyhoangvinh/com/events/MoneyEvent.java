@@ -6,10 +6,18 @@ import electronicwallet.lyhoangvinh.com.local.model.Total;
 public class MoneyEvent {
     private Money money;
     private Total total;
+    private String bankName;
+
+    public MoneyEvent() {
+    }
 
     public MoneyEvent(Money money, Total total) {
         this.money = money;
         this.total = total;
+    }
+
+    public void setBankName(String bankName) {
+        this.bankName = bankName;
     }
 
     public Money getMoney() {

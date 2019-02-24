@@ -41,7 +41,10 @@ public class BankItemViewHolder extends BaseItemViewHolder<BankItem> {
         tvTitle.setText(item.getTitle());
         rcv.setHasFixedSize(true);
         rcv.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
-        BankAdapter adapter = new BankAdapter(item.getBanks());
+        BankAdapter adapter = new BankAdapter(item.getBanks(), s -> {
+            tvContent.setVisibility(View.GONE);
+            tvTitle.setText(String.format(context.getString(R.string.phương_thuc_thanh_toan), s));
+        });
         rcv.setAdapter(adapter);
         MySnapHelper snapRecycleReferences = new GravitySnapHelper(Gravity.START);
         snapRecycleReferences.attachToRecyclerView(rcv);

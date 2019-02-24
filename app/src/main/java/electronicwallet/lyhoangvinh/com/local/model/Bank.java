@@ -13,9 +13,10 @@ public class Bank {
         isTick = tick;
     }
 
-    public Bank(String url, String title) {
+    public Bank(String url, String title, boolean isTick) {
         this.url = url;
         this.title = title;
+        this.isTick = isTick;
     }
 
     public String getUrl() {

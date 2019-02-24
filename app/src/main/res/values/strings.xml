@@ -18,7 +18,7 @@
     <string name="money">%sđ</string>
     <string name="phuong_thuc_thanh_toan_null">/./</string>
     <string name="mua_ma_the">Mua mã thẻ</string>
-    <string name="phương_thuc_thanh_toan">PHƯƠNG THỨC THANH TOÁN</string>
+    <string name="phương_thuc_thanh_toan">PHƯƠNG THỨC THANH TOÁN: %s</string>
     <string name="chon_phuong_thuoc_thanh_toan">CHỌN PHƯƠNG THỨC THANH TOÁN</string>
 
     <!-- permission -->
