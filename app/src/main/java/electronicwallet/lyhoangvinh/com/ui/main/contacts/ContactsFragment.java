@@ -36,7 +36,7 @@ public class ContactsFragment extends BaseSwipeRecyclerViewFragment<ContactAdapt
     }
 
     @Override
-    public boolean isEvenbus() {
+    public boolean isRegisterEvenBus() {
         return false;
     }
 

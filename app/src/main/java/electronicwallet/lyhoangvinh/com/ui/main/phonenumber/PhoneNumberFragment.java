@@ -44,7 +44,7 @@ public class PhoneNumberFragment extends BasePresenterFragment<PhoneNumberView, 
     }
 
     @Override
-    public boolean isEvenbus() {
+    public boolean isRegisterEvenBus() {
         return false;
     }
 

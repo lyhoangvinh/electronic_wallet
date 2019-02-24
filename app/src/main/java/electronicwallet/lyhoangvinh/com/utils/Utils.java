@@ -1,5 +1,8 @@
 package electronicwallet.lyhoangvinh.com.utils;
 
+import android.content.Context;
+import android.support.annotation.DrawableRes;
+import android.support.v4.content.ContextCompat;
 import android.view.View;
 
 import java.lang.ref.WeakReference;
@@ -23,6 +26,15 @@ public class Utils {
             } else {
                 view.setClickable(clickable);
             }
+        }
+    }
+
+    public static void setBackground(Context context, View view, @DrawableRes int id){
+        final int sdk = android.os.Build.VERSION.SDK_INT;
+        if(sdk < android.os.Build.VERSION_CODES.JELLY_BEAN) {
+            view.setBackgroundDrawable(ContextCompat.getDrawable(context, id) );
+        } else {
+            view.setBackground(ContextCompat.getDrawable(context, id));
         }
     }
 }

@@ -1,15 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="wrap_content"
+    android:id="@+id/root"
+    android:background="@drawable/button_blue"
+    android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
-    <Button
-        android:id="@+id/btMoney"
-        android:textAllCaps="false"
+    <TextView
+        android:id="@+id/tvMoney"
+        android:padding="@dimen/base5"
+        android:textColor="@color/dark_text"
+        android:layout_centerInParent="true"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:background="@drawable/button_blue"
         android:layout_margin="@dimen/base10"
         tools:text="500.000đ" />
 

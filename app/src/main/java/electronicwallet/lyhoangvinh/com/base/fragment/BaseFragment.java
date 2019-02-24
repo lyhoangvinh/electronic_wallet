@@ -46,7 +46,7 @@ public abstract class BaseFragment extends Fragment implements BaseView, EasyPer
 
     protected abstract int getLayout();
 
-    public abstract boolean isEvenbus();
+    public abstract boolean isRegisterEvenBus();
 
     private Unbinder unbinder;
 
@@ -61,7 +61,7 @@ public abstract class BaseFragment extends Fragment implements BaseView, EasyPer
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         initialize(view, getActivity());
-        if (isEvenbus()){
+        if (isRegisterEvenBus()) {
             EventBus.getDefault().register(this);
         }
     }
@@ -89,7 +89,7 @@ public abstract class BaseFragment extends Fragment implements BaseView, EasyPer
         mFragmentComponent = null;
         hideProgress();
 
-        if (isEvenbus()){
+        if (isRegisterEvenBus() && EventBus.getDefault().isRegistered(this)) {
             EventBus.getDefault().unregister(this);
         }
     }

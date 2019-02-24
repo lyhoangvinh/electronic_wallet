@@ -22,4 +22,8 @@ public class Money {
     public boolean isTick() {
         return tick;
     }
+
+    public void setTick(boolean tick) {
+        this.tick = tick;
+    }
 }
