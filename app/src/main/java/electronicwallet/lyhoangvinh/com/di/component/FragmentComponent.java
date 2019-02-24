@@ -7,6 +7,7 @@ import dagger.Component;
 import electronicwallet.lyhoangvinh.com.di.module.FragmentModule;
 import electronicwallet.lyhoangvinh.com.di.scopes.PerFragment;
 import electronicwallet.lyhoangvinh.com.ui.main.contacts.ContactsFragment;
+import electronicwallet.lyhoangvinh.com.ui.main.payment.PaymentFragment;
 import electronicwallet.lyhoangvinh.com.ui.main.phonenumber.PhoneNumberFragment;
 import electronicwallet.lyhoangvinh.com.ui.main.recharge.RechargeFragment;
 
@@ -34,4 +35,6 @@ public interface FragmentComponent {
     void inject(ContactsFragment fragment);
 
     void inject(RechargeFragment fragment);
+
+    void inject(PaymentFragment fragment);
 }

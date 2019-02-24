@@ -1,8 +1,11 @@
 package electronicwallet.lyhoangvinh.com.events;
 
+import org.parceler.Parcel;
+
 import electronicwallet.lyhoangvinh.com.local.model.Money;
 import electronicwallet.lyhoangvinh.com.local.model.Total;
 
+@Parcel
 public class MoneyEvent {
     private Money money;
     private Total total;

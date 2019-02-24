@@ -52,4 +52,6 @@ public class NavigatorHelper {
     public void navigateRechargeFragment() {
         mNavigator.replaceFragment(R.id.container, new RechargeFragment());
     }
+
+
 }

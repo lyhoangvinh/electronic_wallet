@@ -73,11 +73,12 @@ public class RechargeFragment extends BasePresenterFragment<RechargeView, Rechar
     public void onClicks(View v) {
         switch (v.getId()) {
             case R.id.imvBack:
+                onBackPressed();
                 break;
             case R.id.btnConfirm:
+                confirm();
                 break;
         }
-        onBackPressed();
     }
 
     private void confirm() {
@@ -87,7 +88,7 @@ public class RechargeFragment extends BasePresenterFragment<RechargeView, Rechar
         if (TextUtils.isEmpty(moneyEvent.getBankName()))
             return;
 
-        //
+
     }
 
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
