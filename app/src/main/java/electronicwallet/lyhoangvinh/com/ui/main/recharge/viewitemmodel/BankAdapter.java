@@ -3,6 +3,7 @@ package electronicwallet.lyhoangvinh.com.ui.main.recharge.viewitemmodel;
 import android.support.annotation.NonNull;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -34,6 +35,19 @@ public class BankAdapter extends BaseAdapter<Bank, BankAdapter.BankViewHolder> {
     protected void onBindViewHolder(BankViewHolder holder, @NonNull Bank dto, int position) {
         holder.tvName.setText(dto.getTitle());
         Utils.setImageFromUrl(dto.getUrl(), holder.imv);
+        if (dto.isTick()) {
+            holder.tvName.setTextColor(holder.tvName.getContext().getResources().getColor(R.color.white));
+            Utils.setBackground(holder.root.getContext(), holder.root, R.drawable.bg_blue_light);
+        } else {
+            holder.tvName.setTextColor(holder.tvName.getContext().getResources().getColor(R.color.dark_text));
+            Utils.setBackground(holder.root.getContext(), holder.root, R.drawable.button_blue);
+        }
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
     }
 
     class BankViewHolder extends BaseViewHolder {
@@ -43,6 +57,9 @@ public class BankAdapter extends BaseAdapter<Bank, BankAdapter.BankViewHolder> {
 
         @BindView(R.id.imvAvatar)
         ImageView imv;
+
+        @BindView(R.id.root)
+        RelativeLayout root;
 
         BankViewHolder(View itemView) {
             super(itemView);

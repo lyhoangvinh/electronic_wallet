@@ -29,4 +29,6 @@
             <enum name="anchored" value="6" />
         </attr>
     </declare-styleable>
+
+    <bool name="is_rtl">false</bool>
 </resources>
