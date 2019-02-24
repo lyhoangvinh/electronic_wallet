@@ -26,4 +26,8 @@
     <string name="dialog_title_permission_settings">Cấp quyền truy cập</string>ring>
     <string name="permission_rationale_file_access">Vui lòng cấp quyền truy cập cho ứng dụng.</string>
     <string name="permission_rationale_location">Vui lòng cấp quyền truy cập Location cho ứng dụng. Nếu không được cấp quyền ứng dụng sẽ không xác định vị trí hiện tại của bạn.</string>
+
+    <string name="xac_nhan">Xác nhận</string>
+    <string name="dung_sdt">Dùng số điện thoại \"<font fgcolor='#ff33b5e5'>%s</font>\" để giao dịch?</string>
+
 </resources>

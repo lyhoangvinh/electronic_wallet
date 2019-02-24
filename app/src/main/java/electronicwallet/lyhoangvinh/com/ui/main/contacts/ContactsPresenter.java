@@ -2,6 +2,8 @@ package electronicwallet.lyhoangvinh.com.ui.main.contacts;
 
 import android.arch.lifecycle.Transformations;
 import android.content.Context;
+import android.os.Handler;
+import android.text.TextUtils;
 
 import java.util.ArrayList;
 
@@ -11,6 +13,7 @@ import electronicwallet.lyhoangvinh.com.base.presenter.BaseListPresenter;
 import electronicwallet.lyhoangvinh.com.di.qualifier.ActivityContext;
 import electronicwallet.lyhoangvinh.com.di.scopes.PerFragment;
 import electronicwallet.lyhoangvinh.com.local.DatabaseManager;
+import lyhoangvinh.com.myutil.androidutils.CommonUtils;
 
 @PerFragment
 class ContactsPresenter extends BaseListPresenter<ContactsView> {
@@ -20,7 +23,11 @@ class ContactsPresenter extends BaseListPresenter<ContactsView> {
     @Inject
     ContactsPresenter(@ActivityContext Context context, DatabaseManager databaseManager) {
         super(context, databaseManager);
-        adapter = new ContactAdapter(new ArrayList<>());
+        adapter = new ContactAdapter(new ArrayList<>(), s -> {
+            if (getView() != null){
+                getView().openRecharger(s);
+            }
+        });
     }
 
     @Override
@@ -43,6 +50,24 @@ class ContactsPresenter extends BaseListPresenter<ContactsView> {
             adapter.setDataSetToAdapter(contacts);
             getView().hideProgress();
         });
+    }
+
+    void sendPhoneNumber(String number) {
+        if (getView() == null) {
+            return;
+        }
+        getView().showProgress();
+        new Handler().postDelayed(() -> {
+            if (!TextUtils.isEmpty(number)) {
+                CommonUtils.hideSoftKeyboard(getContext());
+                getView().success("OK");
+            } else {
+                getView().failed("Faild");
+            }
+            if (getView() != null) {
+                getView().hideProgress();
+            }
+        }, 500);
     }
 
     void search(String text) {

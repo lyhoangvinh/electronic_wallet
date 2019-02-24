@@ -74,4 +74,8 @@ public class Utils {
                 .error(R.drawable.icons_mobile_payment_64))
                 .into(imv);
     }
+
+    public static String setOnChangeHtmlColor(String color, String text) {
+        return "<font color='" + color + "'>(" + text + ")</font>";
+    }
 }

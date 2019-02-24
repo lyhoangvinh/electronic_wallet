@@ -21,6 +21,7 @@ import electronicwallet.lyhoangvinh.com.R;
 import electronicwallet.lyhoangvinh.com.base.fragment.BaseSwipeRecyclerViewFragment;
 import electronicwallet.lyhoangvinh.com.utils.NavigatorHelper;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import lyhoangvinh.com.myutil.androidutils.AlertUtils;
 
 public class ContactsFragment extends BaseSwipeRecyclerViewFragment<ContactAdapter, ContactsView, ContactsPresenter> implements ContactsView {
 
@@ -76,5 +77,24 @@ public class ContactsFragment extends BaseSwipeRecyclerViewFragment<ContactAdapt
     public boolean onBackPressed() {
         navigatorHelper.navigatePhoneNumberFragment();
         return true;
+    }
+
+    @Override
+    public void success(String message) {
+        showMessage(message);
+        navigatorHelper.navigateRechargeFragment();
+    }
+
+    @Override
+    public void failed(String message) {
+        showMessage(message);
+    }
+
+    @Override
+    public void openRecharger(String s) {
+        AlertUtils.showAlertDialog(getActivity(), getString(R.string.xac_nhan),
+                String.format(getString(R.string.dung_sdt), s),
+                getString(R.string.dialog_ok), getString(R.string.dialog_cancel), (dialogInterface, i) ->
+                        getPresenter().sendPhoneNumber(s), null);
     }
 }

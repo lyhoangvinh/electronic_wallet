@@ -24,6 +24,8 @@ import electronicwallet.lyhoangvinh.com.base.fragment.BasePresenterFragment;
 import electronicwallet.lyhoangvinh.com.utils.NavigatorHelper;
 import electronicwallet.lyhoangvinh.com.utils.Utils;
 import io.reactivex.android.schedulers.AndroidSchedulers;
+import lyhoangvinh.com.myutil.androidutils.AlertUtils;
+import lyhoangvinh.com.myutil.androidutils.CommonUtils;
 
 public class PhoneNumberFragment extends BasePresenterFragment<PhoneNumberView, PhoneNumberPresenter> implements PhoneNumberView {
 
@@ -70,7 +72,7 @@ public class PhoneNumberFragment extends BasePresenterFragment<PhoneNumberView, 
 
         edtNumber.setOnEditorActionListener((v, actionId, event) -> {
             if (actionId == EditorInfo.IME_ACTION_DONE || actionId == EditorInfo.IME_NULL) {
-                conFirmInThread();
+                conFirmInThread(ctx);
                 return true;
             }
             return false;
@@ -81,7 +83,7 @@ public class PhoneNumberFragment extends BasePresenterFragment<PhoneNumberView, 
     public void sendPhoneNumber(View v) {
         switch (v.getId()) {
             case R.id.btnConfirm:
-                conFirmInThread();
+                conFirmInThread(getActivity());
                 break;
             case R.id.tvContacts:
                 navigatorHelper.navigateContactsFragment();
@@ -101,9 +103,14 @@ public class PhoneNumberFragment extends BasePresenterFragment<PhoneNumberView, 
         showMessage(message);
     }
 
-    private void conFirmInThread() {
+    private void conFirmInThread(Context ctx) {
+        String numberText = edtNumber.getText().toString();
+        CommonUtils.hideSoftKeyboard(ctx);
         Utils.setClickable(btnConfirm, false);
-        getPresenter().sendPhoneNumber(edtNumber.getText().toString());
+        AlertUtils.showAlertDialog(ctx, getString(R.string.xac_nhan),
+                String.format(getString(R.string.dung_sdt), numberText),
+                getString(R.string.dialog_ok), getString(R.string.dialog_cancel), (dialogInterface, i) ->
+                        getPresenter().sendPhoneNumber(numberText), null);
         Utils.setClickable(btnConfirm, true, 300L);
     }
 
