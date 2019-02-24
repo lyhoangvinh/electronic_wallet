@@ -29,5 +29,5 @@
 
     <string name="xac_nhan">Xác nhận</string>
     <string name="dung_sdt">Dùng số điện thoại \"<font fgcolor='#ff33b5e5'>%s</font>\" để giao dịch?</string>
-
+    <string name="vui_long">Vui lòng chọn phương thức thanh toán</string>
 </resources>

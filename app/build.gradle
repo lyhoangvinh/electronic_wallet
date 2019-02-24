@@ -82,8 +82,4 @@ dependencies {
 
     implementation 'pub.devrel:easypermissions:1.2.0'
 
-    // parcel
-    implementation 'org.parceler:parceler-api:1.1.8'
-    annotationProcessor 'org.parceler:parceler:1.1.8'
-
 }

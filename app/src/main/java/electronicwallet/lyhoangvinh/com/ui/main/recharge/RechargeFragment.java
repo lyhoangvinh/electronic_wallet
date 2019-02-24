@@ -86,6 +86,7 @@ public class RechargeFragment extends BasePresenterFragment<RechargeView, Rechar
             return;
 
         if (TextUtils.isEmpty(moneyEvent.getBankName()))
+            showMessage(getString(R.string.vui_long));
             return;
 
 

@@ -4,8 +4,10 @@ package electronicwallet.lyhoangvinh.com.utils;
 import android.content.Intent;
 
 import electronicwallet.lyhoangvinh.com.R;
+import electronicwallet.lyhoangvinh.com.events.MoneyEvent;
 import electronicwallet.lyhoangvinh.com.ui.main.MainActivity;
 import electronicwallet.lyhoangvinh.com.ui.main.contacts.ContactsFragment;
+import electronicwallet.lyhoangvinh.com.ui.main.payment.PaymentFragment;
 import electronicwallet.lyhoangvinh.com.ui.main.phonenumber.PhoneNumberFragment;
 import electronicwallet.lyhoangvinh.com.ui.main.recharge.RechargeFragment;
 import lyhoangvinh.com.myutil.navigation.ActivityNavigator;
@@ -53,5 +55,7 @@ public class NavigatorHelper {
         mNavigator.replaceFragment(R.id.container, new RechargeFragment());
     }
 
-
+    public void navigatePaymentFragment(MoneyEvent event) {
+        mNavigator.replaceFragment(R.id.container, PaymentFragment.newInstance(event));
+    }
 }
