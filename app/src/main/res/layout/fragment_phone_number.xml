@@ -2,7 +2,6 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent"
     android:gravity="center">
 
     <TextView
@@ -12,8 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:text="@string/nhap_sdt_cua_ban"
-        android:textColor="@color/white" />
+        android:text="@string/nhap_sdt_cua_ban" />
 
     <EditText
         android:id="@+id/edtNumber"
@@ -50,6 +48,6 @@
         android:layout_centerHorizontal="true"
         android:gravity="center"
         android:text="@string/chon_tu_danh_ba"
-        android:textColor="@color/white" />
+        android:textColor="@color/whiteLight" />
 
 </RelativeLayout>

@@ -61,7 +61,7 @@ public class RechargeItemAdapter extends BaseItemAdapter {
             case ITEM_DIVIDER:
                 return new DividerItemViewHolder(parent, R.layout.view_divider);
             case ITEM_BANK:
-                return new BankItemViewHolder(parent, R.layout.view_title);
+                return new BankItemViewHolder(parent, R.layout.view_bank);
             default:
                 throw new RuntimeException("Not support type=" + viewType);
         }

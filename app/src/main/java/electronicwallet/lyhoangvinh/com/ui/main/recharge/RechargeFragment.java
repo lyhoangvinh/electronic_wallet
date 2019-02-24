@@ -25,7 +25,7 @@ public class RechargeFragment extends BasePresenterFragment<RechargeView, Rechar
 
     private int count = 1;
 
-    private int money = 0;
+    private int money = 10000;
 
     @Inject
     NavigatorHelper navigatorHelper;
@@ -63,12 +63,12 @@ public class RechargeFragment extends BasePresenterFragment<RechargeView, Rechar
         rcv.setLayoutManager(new LinearLayoutManager(ctx, LinearLayoutManager.VERTICAL, false));
         rcv.setAdapter(adapter);
         adapter.setData(getPresenter().hasItem());
-        tvRecharger.setText("0 đ");
+        tvRecharger.setText(Utils.formatVnCurrence(String.valueOf(money)));
     }
 
     @OnClick({R.id.imvBack, R.id.btnConfirm})
     public void onClicks(View v) {
-        switch (v.getId()){
+        switch (v.getId()) {
             case R.id.imvBack:
                 break;
             case R.id.btnConfirm:

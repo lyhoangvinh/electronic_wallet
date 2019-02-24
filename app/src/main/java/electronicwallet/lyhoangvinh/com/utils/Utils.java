@@ -5,12 +5,18 @@ import android.support.annotation.DrawableRes;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.ImageView;
+
+import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.RequestOptions;
 
 import java.lang.ref.WeakReference;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Currency;
 import java.util.Locale;
+
+import electronicwallet.lyhoangvinh.com.R;
 
 public class Utils {
     public static void setClickable(View view, boolean clickable) {
@@ -60,5 +66,12 @@ public class Utils {
         }
         price = String.format("%s đ", price);
         return price;
+    }
+
+    public static void setImageFromUrl(String url, ImageView imv) {
+        Glide.with(imv.getContext()).load(url).apply(new RequestOptions().centerCrop()
+                .placeholder(R.drawable.icons_mobile_payment_64)
+                .error(R.drawable.icons_mobile_payment_64))
+                .into(imv);
     }
 }

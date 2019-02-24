@@ -1,5 +1,8 @@
 package electronicwallet.lyhoangvinh.com.ui.main.recharge.viewitemmodel;
 
+import android.content.Context;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -17,8 +20,14 @@ public class BankItemViewHolder extends BaseItemViewHolder<BankItem> {
     @BindView(R.id.tvContent)
     TextView tvContent;
 
+    @BindView(R.id.rcv)
+    RecyclerView rcv;
+
+    private Context context;
+
     public BankItemViewHolder(ViewGroup parent, int resId) {
         super(parent, resId);
+        context = parent.getContext();
     }
 
     @Override
@@ -27,5 +36,9 @@ public class BankItemViewHolder extends BaseItemViewHolder<BankItem> {
         tvContent.setVisibility(View.VISIBLE);
         tvContent.setText(item.getName());
         tvTitle.setText(item.getTitle());
+        rcv.setHasFixedSize(true);
+        rcv.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
+        BankAdapter adapter = new BankAdapter(item.getBanks());
+        rcv.setAdapter(adapter);
     }
 }

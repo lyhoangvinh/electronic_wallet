@@ -2,14 +2,14 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/colorAccent">
+    android:background="@color/colorBackgroundDark">
 
 
     <ImageView
-        android:layout_width="@dimen/base50"
-        android:layout_height="@dimen/base50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:src="@drawable/icon_momo" />
+        android:src="@drawable/icons_card_wallet_64" />
 
     <TextView
         android:id="@+id/tvPhoneNumber"
@@ -22,6 +22,5 @@
         android:layout_marginTop="@dimen/base5"
         android:padding="@dimen/padding_normal"
         android:text="@string/my_name_is_vinh"
-        android:textColor="@color/white"
         android:textSize="@dimen/text_small" />
 </RelativeLayout>

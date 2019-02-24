@@ -13,6 +13,7 @@ import electronicwallet.lyhoangvinh.com.base.presenter.BasePresenter;
 import electronicwallet.lyhoangvinh.com.di.qualifier.ActivityContext;
 import electronicwallet.lyhoangvinh.com.di.scopes.PerFragment;
 import electronicwallet.lyhoangvinh.com.local.DatabaseManager;
+import electronicwallet.lyhoangvinh.com.local.model.Bank;
 import electronicwallet.lyhoangvinh.com.local.model.BankItem;
 import electronicwallet.lyhoangvinh.com.local.model.DividerItem;
 import electronicwallet.lyhoangvinh.com.local.model.Money;
@@ -31,6 +32,7 @@ public class RechargePresenter extends BasePresenter<RechargeView> {
 
     List<Item> hasItem() {
         List<Item> items = new ArrayList<>();
+
         List<Money> moneys = new ArrayList<>();
         moneys.add(new Money(10000, true));
         moneys.add(new Money(20000, false));
@@ -40,12 +42,19 @@ public class RechargePresenter extends BasePresenter<RechargeView> {
         moneys.add(new Money(200000, false));
         moneys.add(new Money(300000, false));
         moneys.add(new Money(500000, false));
+
+        List<Bank> banks = new ArrayList<>();
+        banks.add(new Bank("https://www.usbank.com/dam/images/illustration/checking-easy-illustration.png", "Linked account"));
+        banks.add(new Bank("https://cdn3.iconfinder.com/data/icons/business-and-seo-1-1/512/3-512.png", "International card"));
+        banks.add(new Bank("https://www.miifotos.com/thumbs/GaiCMhh2zQuJeGHJy8Y4P2xyw78VCoLxtMy70PTYHXrquACp5K3Zxhvcf37RSC8WXLdtW0zVtvSnCs9RzhwJ7A.jpg", "Domestic card"));
+        banks.add(new Bank("https://www.fnb.co.za/03images/promotions/eWallet/illi.png", "eWallet"));
+
+        items.add(new BankItem(context.getString(R.string.chon_phuong_thuoc_thanh_toan), "->", banks));
         items.add(new TitleItem(context.getString(R.string.menh_gia_the)));
         items.add(new MoneyItem(moneys));
         items.add(new DividerItem());
         items.add(new TotalItem());
         items.add(new DividerItem());
-        items.add(new BankItem(context.getString(R.string.chon_phuong_thuoc_thanh_toan), "->"));
         return items;
     }
 }
