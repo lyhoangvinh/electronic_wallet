@@ -3,6 +3,7 @@ package electronicwallet.lyhoangvinh.com.ui.main.recharge.viewitemmodel;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.view.Gravity;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
@@ -10,6 +11,8 @@ import android.widget.TextView;
 import butterknife.BindView;
 import electronicwallet.lyhoangvinh.com.R;
 import electronicwallet.lyhoangvinh.com.base.adapter.BaseItemViewHolder;
+import electronicwallet.lyhoangvinh.com.base.rcv.GravitySnapHelper;
+import electronicwallet.lyhoangvinh.com.base.rcv.MySnapHelper;
 import electronicwallet.lyhoangvinh.com.local.model.BankItem;
 
 public class BankItemViewHolder extends BaseItemViewHolder<BankItem> {
@@ -40,5 +43,7 @@ public class BankItemViewHolder extends BaseItemViewHolder<BankItem> {
         rcv.setLayoutManager(new LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false));
         BankAdapter adapter = new BankAdapter(item.getBanks());
         rcv.setAdapter(adapter);
+        MySnapHelper snapRecycleReferences = new GravitySnapHelper(Gravity.START);
+        snapRecycleReferences.attachToRecyclerView(rcv);
     }
 }
