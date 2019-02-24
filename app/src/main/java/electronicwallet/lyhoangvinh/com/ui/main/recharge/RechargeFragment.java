@@ -87,6 +87,7 @@ public class RechargeFragment extends BasePresenterFragment<RechargeView, Rechar
             showMessage(getString(R.string.vui_long));
         } else {
             Utils.createNotification(getActivity(), "XXX", "o000");
+
         }
 
     }
