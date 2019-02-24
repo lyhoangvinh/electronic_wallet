@@ -44,7 +44,7 @@ public class RechargePresenter extends BasePresenter<RechargeView> {
         moneys.add(new Money(500000, false));
 
         List<Bank> banks = new ArrayList<>();
-        banks.add(new Bank("https://www.usbank.com/dam/images/illustration/checking-easy-illustration.png", "Linked account", true));
+        banks.add(new Bank("https://www.usbank.com/dam/images/illustration/checking-easy-illustration.png", "Linked account", false));
         banks.add(new Bank("https://cdn3.iconfinder.com/data/icons/business-and-seo-1-1/512/3-512.png", "International card", false));
         banks.add(new Bank("https://www.miifotos.com/thumbs/GaiCMhh2zQuJeGHJy8Y4P2xyw78VCoLxtMy70PTYHXrquACp5K3Zxhvcf37RSC8WXLdtW0zVtvSnCs9RzhwJ7A.jpg", "Domestic card", false));
         banks.add(new Bank("https://www.fnb.co.za/03images/promotions/eWallet/illi.png", "eWallet", false));

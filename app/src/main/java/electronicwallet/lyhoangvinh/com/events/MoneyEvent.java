@@ -35,4 +35,8 @@ public class MoneyEvent {
     public void setTotal(Total total) {
         this.total = total;
     }
+
+    public String getBankName() {
+        return bankName;
+    }
 }

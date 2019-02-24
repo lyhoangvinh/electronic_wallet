@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.TextView;
 
@@ -38,6 +39,8 @@ public class RechargeFragment extends BasePresenterFragment<RechargeView, Rechar
 
     @BindView(R.id.rcv)
     RecyclerView rcv;
+
+    private MoneyEvent moneyEvent;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -77,8 +80,19 @@ public class RechargeFragment extends BasePresenterFragment<RechargeView, Rechar
         onBackPressed();
     }
 
+    private void confirm() {
+        if (moneyEvent == null)
+            return;
+
+        if (TextUtils.isEmpty(moneyEvent.getBankName()))
+            return;
+
+        //
+    }
+
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     public void onEvent(MoneyEvent event) {
+        moneyEvent = event;
         if (event == null)
             return;
 
