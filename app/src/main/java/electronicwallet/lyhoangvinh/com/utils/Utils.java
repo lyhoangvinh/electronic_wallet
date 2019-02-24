@@ -1,7 +1,12 @@
 package electronicwallet.lyhoangvinh.com.utils;
 
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
+import android.media.RingtoneManager;
+import android.net.Uri;
 import android.support.annotation.DrawableRes;
+import android.support.v4.app.NotificationCompat;
 import android.support.v4.content.ContextCompat;
 import android.text.TextUtils;
 import android.view.View;
@@ -17,6 +22,7 @@ import java.util.Currency;
 import java.util.Locale;
 
 import electronicwallet.lyhoangvinh.com.R;
+import electronicwallet.lyhoangvinh.com.ui.splash.SplashActivity;
 
 public class Utils {
     public static void setClickable(View view, boolean clickable) {
@@ -77,5 +83,25 @@ public class Utils {
 
     public static String setOnChangeHtmlColor(String color, String text) {
         return "<font color='" + color + "'>(" + text + ")</font>";
+    }
+
+    public static void createNotification(Context context, String title, String message) {
+        Intent intent = new Intent(context, SplashActivity.class);
+//        intent.putExtra(Constants.EXTRA_TASK_ID, taskId);
+//        intent.putExtra(Constants.EXTRA_DATA, appCode);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, (int) System.currentTimeMillis(), intent, PendingIntent.FLAG_UPDATE_CURRENT);
+
+        Uri defaultSoundUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
+        NotificationCompat.Builder notificationBuilder =
+                new NotificationCompat.Builder(context, NotificationManagerHelper.NOTIFICATION_CHANNEL_ID)
+                        .setSmallIcon(R.drawable.icons_card_wallet_64)
+                        .setContentTitle(title)
+                        .setContentText(message)
+                        .setAutoCancel(true)
+                        .setSound(defaultSoundUri)
+//                        .setGroup(roomId)
+                        .setContentIntent(pendingIntent);
+        NotificationManagerHelper.show(context, NotificationManagerHelper.DEFAULT_NOTIFY_ID, notificationBuilder.build());
+
     }
 }

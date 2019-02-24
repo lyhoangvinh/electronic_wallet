@@ -82,13 +82,12 @@ public class RechargeFragment extends BasePresenterFragment<RechargeView, Rechar
     }
 
     private void confirm() {
-        if (moneyEvent == null)
-            return;
 
-        if (TextUtils.isEmpty(moneyEvent.getBankName()))
+        if (moneyEvent == null || TextUtils.isEmpty(moneyEvent.getBankName())) {
             showMessage(getString(R.string.vui_long));
-            return;
-
+        } else {
+            Utils.createNotification(getActivity(), "XXX", "o000");
+        }
 
     }
 
