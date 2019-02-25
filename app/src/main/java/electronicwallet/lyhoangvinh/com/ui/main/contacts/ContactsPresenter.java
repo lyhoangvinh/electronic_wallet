@@ -60,7 +60,7 @@ class ContactsPresenter extends BaseListPresenter<ContactsView> {
         new Handler().postDelayed(() -> {
             if (!TextUtils.isEmpty(number)) {
                 CommonUtils.hideSoftKeyboard(getContext());
-                getView().success("OK");
+                getView().success(number);
             } else {
                 getView().failed("Faild");
             }

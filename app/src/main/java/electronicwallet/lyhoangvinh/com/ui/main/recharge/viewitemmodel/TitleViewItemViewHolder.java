@@ -7,7 +7,7 @@ import android.widget.TextView;
 import butterknife.BindView;
 import electronicwallet.lyhoangvinh.com.R;
 import electronicwallet.lyhoangvinh.com.base.adapter.BaseItemViewHolder;
-import electronicwallet.lyhoangvinh.com.local.model.TitleItem;
+import electronicwallet.lyhoangvinh.com.local.item.TitleItem;
 
 public class TitleViewItemViewHolder extends BaseItemViewHolder<TitleItem> {
 

@@ -8,7 +8,7 @@ import android.view.ViewGroup;
 import butterknife.BindView;
 import electronicwallet.lyhoangvinh.com.R;
 import electronicwallet.lyhoangvinh.com.base.adapter.BaseItemViewHolder;
-import electronicwallet.lyhoangvinh.com.local.model.MoneyItem;
+import electronicwallet.lyhoangvinh.com.local.item.MoneyItem;
 
 public class MoneyViewItemViewHolder extends BaseItemViewHolder<MoneyItem> {
 

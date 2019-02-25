@@ -55,7 +55,7 @@ public class BankAdapter extends BaseAdapter<Bank, BankAdapter.BankViewHolder> {
                 onClickItemListener.accept(dto.getTitle());
             }
             MoneyEvent moneyEvent = new MoneyEvent();
-            moneyEvent.setBankName(dto.getTitle());
+            moneyEvent.setBank(dto);
             EventBus.getDefault().post(moneyEvent);
             changeTick(position);
         });

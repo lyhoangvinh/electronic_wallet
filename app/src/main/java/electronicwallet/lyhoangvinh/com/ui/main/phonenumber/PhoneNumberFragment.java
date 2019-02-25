@@ -94,8 +94,7 @@ public class PhoneNumberFragment extends BasePresenterFragment<PhoneNumberView, 
 
     @Override
     public void success(String message) {
-        showMessage(message);
-        navigatorHelper.navigateRechargeFragment();
+        navigatorHelper.navigateRechargeFragment(message);
     }
 
     @Override

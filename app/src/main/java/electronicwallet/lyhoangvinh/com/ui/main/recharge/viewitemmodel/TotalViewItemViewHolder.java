@@ -12,7 +12,7 @@ import electronicwallet.lyhoangvinh.com.R;
 import electronicwallet.lyhoangvinh.com.base.adapter.BaseItemViewHolder;
 import electronicwallet.lyhoangvinh.com.events.MoneyEvent;
 import electronicwallet.lyhoangvinh.com.local.model.Total;
-import electronicwallet.lyhoangvinh.com.local.model.TotalItem;
+import electronicwallet.lyhoangvinh.com.local.item.TotalItem;
 
 public class TotalViewItemViewHolder extends BaseItemViewHolder<TotalItem> {
 

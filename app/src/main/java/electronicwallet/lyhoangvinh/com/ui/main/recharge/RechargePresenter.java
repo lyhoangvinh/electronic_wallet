@@ -14,12 +14,12 @@ import electronicwallet.lyhoangvinh.com.di.qualifier.ActivityContext;
 import electronicwallet.lyhoangvinh.com.di.scopes.PerFragment;
 import electronicwallet.lyhoangvinh.com.local.DatabaseManager;
 import electronicwallet.lyhoangvinh.com.local.model.Bank;
-import electronicwallet.lyhoangvinh.com.local.model.BankItem;
-import electronicwallet.lyhoangvinh.com.local.model.DividerItem;
+import electronicwallet.lyhoangvinh.com.local.item.BankItem;
+import electronicwallet.lyhoangvinh.com.local.item.DividerItem;
 import electronicwallet.lyhoangvinh.com.local.model.Money;
-import electronicwallet.lyhoangvinh.com.local.model.MoneyItem;
-import electronicwallet.lyhoangvinh.com.local.model.TitleItem;
-import electronicwallet.lyhoangvinh.com.local.model.TotalItem;
+import electronicwallet.lyhoangvinh.com.local.item.MoneyItem;
+import electronicwallet.lyhoangvinh.com.local.item.TitleItem;
+import electronicwallet.lyhoangvinh.com.local.item.TotalItem;
 
 @PerFragment
 public class RechargePresenter extends BasePresenter<RechargeView> {

@@ -81,8 +81,7 @@ public class ContactsFragment extends BaseSwipeRecyclerViewFragment<ContactAdapt
 
     @Override
     public void success(String message) {
-        showMessage(message);
-        navigatorHelper.navigateRechargeFragment();
+        navigatorHelper.navigateRechargeFragment(message);
     }
 
     @Override

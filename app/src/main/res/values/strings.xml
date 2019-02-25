@@ -30,4 +30,12 @@
     <string name="xac_nhan">Xác nhận</string>
     <string name="dung_sdt">Dùng số điện thoại \"<font fgcolor='#ff33b5e5'>%s</font>\" để giao dịch?</string>
     <string name="vui_long">Vui lòng chọn phương thức thanh toán</string>
+    <string name="thanh_toan_an_toan">Thanh toán an toàn</string>
+
+    <string name="nguon_tien">Nguồn tiền</string>
+    <string name="chi_tiet_giao_dich">Chi tiết giao dịch</string>
+    <string name="menh_gia">Mệnh giá</string>
+    <string name="tong_tien">Tổng tiền</string>
+    <string name="thong_bao_failed_linked">Số điện thoại \"090..\" không thể sử dụng Linked acount để giao dịch. Vui Lòng chọn phương thức khác</string>
+
 </resources>

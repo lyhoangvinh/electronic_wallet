@@ -13,7 +13,7 @@ import electronicwallet.lyhoangvinh.com.R;
 import electronicwallet.lyhoangvinh.com.base.adapter.BaseItemViewHolder;
 import electronicwallet.lyhoangvinh.com.base.rcv.GravitySnapHelper;
 import electronicwallet.lyhoangvinh.com.base.rcv.MySnapHelper;
-import electronicwallet.lyhoangvinh.com.local.model.BankItem;
+import electronicwallet.lyhoangvinh.com.local.item.BankItem;
 
 public class BankItemViewHolder extends BaseItemViewHolder<BankItem> {
 

@@ -18,15 +18,30 @@ import butterknife.BindView;
 import butterknife.OnClick;
 import electronicwallet.lyhoangvinh.com.R;
 import electronicwallet.lyhoangvinh.com.base.fragment.BasePresenterFragment;
+import electronicwallet.lyhoangvinh.com.constants.Constants;
 import electronicwallet.lyhoangvinh.com.events.MoneyEvent;
+import electronicwallet.lyhoangvinh.com.local.model.Bank;
+import electronicwallet.lyhoangvinh.com.local.model.PaymentData;
 import electronicwallet.lyhoangvinh.com.utils.NavigatorHelper;
 import electronicwallet.lyhoangvinh.com.utils.Utils;
+import lyhoangvinh.com.myutil.androidutils.AlertUtils;
+import lyhoangvinh.com.myutil.navigation.NavigationUtils;
 
 public class RechargeFragment extends BasePresenterFragment<RechargeView, RechargePresenter> implements RechargeView {
+
+    public static RechargeFragment newInstance(@Nullable String event) {
+        return NavigationUtils.createFragmentInstance(new RechargeFragment(), bundle -> {
+            bundle.putString(Constants.EXTRA_DATA, event);
+        });
+    }
+
+    private String phoneNumber;
 
     private int count = 1;
 
     private int money = 10000;
+
+    private Bank bank;
 
     @Inject
     NavigatorHelper navigatorHelper;
@@ -40,7 +55,6 @@ public class RechargeFragment extends BasePresenterFragment<RechargeView, Rechar
     @BindView(R.id.rcv)
     RecyclerView rcv;
 
-    private MoneyEvent moneyEvent;
 
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
@@ -61,6 +75,9 @@ public class RechargeFragment extends BasePresenterFragment<RechargeView, Rechar
     @Override
     protected void initialize(View view, Context ctx) {
         super.initialize(view, ctx);
+        if (getArguments() != null) {
+            phoneNumber = getArguments().getString(Constants.EXTRA_DATA);
+        }
         tvTitle.setText(getString(R.string.mua_ma_the));
         RechargeItemAdapter adapter = new RechargeItemAdapter();
         rcv.setLayoutManager(new LinearLayoutManager(ctx, LinearLayoutManager.VERTICAL, false));
@@ -82,19 +99,19 @@ public class RechargeFragment extends BasePresenterFragment<RechargeView, Rechar
     }
 
     private void confirm() {
-
-        if (moneyEvent == null || TextUtils.isEmpty(moneyEvent.getBankName())) {
-            showMessage(getString(R.string.vui_long));
+        if (bank != null) {
+            if (!TextUtils.isEmpty(phoneNumber) && phoneNumber.startsWith("090") && bank.getTitle().equals("Linked account")) {
+                AlertUtils.showAlertDialog(getActivity(), getString(R.string.thong_bao_failed_linked));
+            } else {
+                navigatorHelper.navigatePaymentFragment(new PaymentData(count, money, bank));
+            }
         } else {
-            Utils.createNotification(getActivity(), "XXX", "o000");
-
+            showMessage(getString(R.string.vui_long));
         }
-
     }
 
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     public void onEvent(MoneyEvent event) {
-        moneyEvent = event;
         if (event == null)
             return;
 
@@ -104,6 +121,10 @@ public class RechargeFragment extends BasePresenterFragment<RechargeView, Rechar
 
         if (event.getTotal() != null) {
             count = event.getTotal().getCount();
+        }
+
+        if (event.getBank() != null) {
+            bank = event.getBank();
         }
 
         int sum = money * count;

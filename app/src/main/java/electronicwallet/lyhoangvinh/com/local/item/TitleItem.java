@@ -1,4 +1,4 @@
-package electronicwallet.lyhoangvinh.com.local.model;
+package electronicwallet.lyhoangvinh.com.local.item;
 
 import electronicwallet.lyhoangvinh.com.base.interfaces.Item;
 

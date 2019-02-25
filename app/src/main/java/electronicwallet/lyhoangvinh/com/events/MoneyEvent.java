@@ -1,16 +1,14 @@
 package electronicwallet.lyhoangvinh.com.events;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
+import electronicwallet.lyhoangvinh.com.local.model.Bank;
 import electronicwallet.lyhoangvinh.com.local.model.Money;
 import electronicwallet.lyhoangvinh.com.local.model.Total;
 
 
-public class MoneyEvent implements Parcelable {
+public class MoneyEvent {
     private Money money;
     private Total total;
-    private String bankName;
+    private Bank bank;
 
     public MoneyEvent() {
     }
@@ -18,10 +16,6 @@ public class MoneyEvent implements Parcelable {
     public MoneyEvent(Money money, Total total) {
         this.money = money;
         this.total = total;
-    }
-
-    public void setBankName(String bankName) {
-        this.bankName = bankName;
     }
 
     public Money getMoney() {
@@ -40,38 +34,11 @@ public class MoneyEvent implements Parcelable {
         this.total = total;
     }
 
-    public String getBankName() {
-        return bankName;
+    public Bank getBank() {
+        return bank;
     }
 
-
-    @Override
-    public int describeContents() {
-        return 0;
+    public void setBank(Bank bank) {
+        this.bank = bank;
     }
-
-    @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeParcelable(this.money, flags);
-        dest.writeParcelable(this.total, flags);
-        dest.writeString(this.bankName);
-    }
-
-    protected MoneyEvent(Parcel in) {
-        this.money = in.readParcelable(Money.class.getClassLoader());
-        this.total = in.readParcelable(Total.class.getClassLoader());
-        this.bankName = in.readString();
-    }
-
-    public static final Parcelable.Creator<MoneyEvent> CREATOR = new Parcelable.Creator<MoneyEvent>() {
-        @Override
-        public MoneyEvent createFromParcel(Parcel source) {
-            return new MoneyEvent(source);
-        }
-
-        @Override
-        public MoneyEvent[] newArray(int size) {
-            return new MoneyEvent[size];
-        }
-    };
 }

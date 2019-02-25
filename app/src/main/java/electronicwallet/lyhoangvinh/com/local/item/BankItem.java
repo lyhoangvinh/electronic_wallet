@@ -1,8 +1,9 @@
-package electronicwallet.lyhoangvinh.com.local.model;
+package electronicwallet.lyhoangvinh.com.local.item;
 
 import java.util.List;
 
 import electronicwallet.lyhoangvinh.com.base.interfaces.Item;
+import electronicwallet.lyhoangvinh.com.local.model.Bank;
 
 public class BankItem implements Item {
 
