@@ -82,4 +82,5 @@ dependencies {
 
     implementation 'pub.devrel:easypermissions:1.2.0'
 
+    implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.0.3'
 }

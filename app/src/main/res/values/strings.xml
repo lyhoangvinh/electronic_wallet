@@ -37,5 +37,6 @@
     <string name="menh_gia">Mệnh giá</string>
     <string name="tong_tien">Tổng tiền</string>
     <string name="thong_bao_failed_linked">Số điện thoại \"090..\" không thể sử dụng Linked acount để giao dịch. Vui Lòng chọn phương thức khác</string>
-
+    <string name="nhap_ma_otp">Xác thực OTP</string>
+    <string name="thanh_cong">Xác thực thành công. Quay về màng hình chính</string>
 </resources>

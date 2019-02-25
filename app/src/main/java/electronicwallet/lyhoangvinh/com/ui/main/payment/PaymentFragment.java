@@ -17,6 +17,7 @@ import electronicwallet.lyhoangvinh.com.base.fragment.BasePresenterFragment;
 import electronicwallet.lyhoangvinh.com.constants.Constants;
 import electronicwallet.lyhoangvinh.com.local.model.PaymentData;
 import electronicwallet.lyhoangvinh.com.utils.NavigatorHelper;
+import lyhoangvinh.com.myutil.androidutils.AlertUtils;
 import lyhoangvinh.com.myutil.navigation.NavigationUtils;
 
 public class PaymentFragment extends BasePresenterFragment<PaymentView, PaymentPresenter> implements PaymentView {
@@ -75,7 +76,11 @@ public class PaymentFragment extends BasePresenterFragment<PaymentView, PaymentP
     }
 
     private void confirm() {
-
+        OTPDialog dialog = new OTPDialog();
+        dialog.setOnOtpCompleted(s -> {
+            AlertUtils.showAlertDialog(getActivity(), getString(R.string.thanh_cong), (dialogInterface, i) -> navigatorHelper.navigateMainActivity(true));
+        });
+        dialog.show(getActivity().getSupportFragmentManager(), null);
     }
 
     @Override
