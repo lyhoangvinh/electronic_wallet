@@ -13,25 +13,38 @@
         android:gravity="center"
         android:text="@string/nhap_sdt_cua_ban" />
 
-    <EditText
-        android:id="@+id/edtNumber"
-        style="@style/EditTextApp.Border"
+    <LinearLayout
+        android:id="@+id/ln"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/tvName"
         android:layout_marginStart="@dimen/base50"
         android:layout_marginEnd="@dimen/base50"
         android:layout_marginBottom="@dimen/spacing_normal"
-        android:gravity="center"
-        android:hint="@string/nhap_sdt"
-        android:inputType="number" />
+        android:orientation="horizontal">
+
+        <electronicwallet.lyhoangvinh.com.widget.intlphoneinputs.IntlPhoneInput
+            android:id="@+id/intlPhoneInput"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/input_normal" />
+
+        <EditText
+            android:id="@+id/edtNumber"
+            style="@style/EditTextApp.Border"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:hint="@string/nhap_sdt"
+            android:inputType="number" />
+    </LinearLayout>
 
     <Button
         android:id="@+id/btnConfirm"
         style="@style/ButtonApp.White"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/edtNumber"
+        android:layout_below="@id/ln"
         android:layout_marginStart="@dimen/base50"
         android:layout_marginEnd="@dimen/base50"
         android:layout_marginBottom="@dimen/spacing_normal"
