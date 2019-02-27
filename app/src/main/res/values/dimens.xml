@@ -107,5 +107,9 @@
 
     <dimen name="dimen_toolbar">50dp</dimen>
     <dimen name="dimen_toolbar_elevation">4dp</dimen>
+
+    <dimen name="text_size_default">24sp</dimen>
+    <dimen name="flag_default_padding_right">1dp</dimen>
+    <dimen name="flag_default_padding">0dp</dimen>
     <!-- END widget -->
 </resources>

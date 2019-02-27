@@ -83,4 +83,7 @@ dependencies {
     implementation 'pub.devrel:easypermissions:1.2.0'
 
     implementation 'com.github.mukeshsolanki:android-otpview-pinview:2.0.3'
+
+    implementation 'com.googlecode.libphonenumber:libphonenumber:7.7.2'
+
 }

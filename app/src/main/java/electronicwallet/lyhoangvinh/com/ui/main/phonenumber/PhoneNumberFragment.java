@@ -35,6 +35,8 @@ public class PhoneNumberFragment extends BasePresenterFragment<PhoneNumberView, 
     @BindView(R.id.btnConfirm)
     Button btnConfirm;
 
+
+
     @Inject
     NavigatorHelper navigatorHelper;
 
@@ -77,6 +79,7 @@ public class PhoneNumberFragment extends BasePresenterFragment<PhoneNumberView, 
             }
             return false;
         });
+
     }
 
     @OnClick({R.id.btnConfirm, R.id.tvContacts})
