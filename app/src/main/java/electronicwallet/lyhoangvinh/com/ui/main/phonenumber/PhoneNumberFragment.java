@@ -23,6 +23,7 @@ import electronicwallet.lyhoangvinh.com.R;
 import electronicwallet.lyhoangvinh.com.base.fragment.BasePresenterFragment;
 import electronicwallet.lyhoangvinh.com.utils.NavigatorHelper;
 import electronicwallet.lyhoangvinh.com.utils.Utils;
+import electronicwallet.lyhoangvinh.com.widget.intlphoneinputs.IntlPhoneInput;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import lyhoangvinh.com.myutil.androidutils.AlertUtils;
 import lyhoangvinh.com.myutil.androidutils.CommonUtils;
@@ -35,7 +36,8 @@ public class PhoneNumberFragment extends BasePresenterFragment<PhoneNumberView, 
     @BindView(R.id.btnConfirm)
     Button btnConfirm;
 
-
+    @BindView(R.id.intlPhoneInput)
+    IntlPhoneInput viewPhoneInput;
 
     @Inject
     NavigatorHelper navigatorHelper;
@@ -79,7 +81,13 @@ public class PhoneNumberFragment extends BasePresenterFragment<PhoneNumberView, 
             }
             return false;
         });
-
+        viewPhoneInput.setEmptyDefault("vn");
+        viewPhoneInput.setDialCodePlainConsumer(s -> {
+            CommonUtils.hideSoftKeyboard(ctx);
+            edtNumber.setText(null);
+            edtNumber.setText(s);
+            edtNumber.clearFocus();
+        });
     }
 
     @OnClick({R.id.btnConfirm, R.id.tvContacts})

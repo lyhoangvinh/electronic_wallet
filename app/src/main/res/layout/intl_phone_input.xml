@@ -5,12 +5,19 @@
     android:gravity="center_vertical"
     android:orientation="horizontal">
 
-    <android.support.v7.widget.AppCompatSpinner
-        android:id="@+id/intl_phone_edit__country"
-        android:layout_width="40dp"
-        android:layout_height="wrap_content"
-        android:background="@android:color/transparent"
-        android:dropDownWidth="350dp" />
+    <FrameLayout
+        android:layout_width="@dimen/base50"
+        android:layout_height="@dimen/base40">
+
+        <android.support.v7.widget.AppCompatSpinner
+            android:id="@+id/intl_phone_edit__country"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:scaleType="centerCrop"
+            android:background="@android:color/transparent"
+            android:dropDownWidth="350dp" />
+
+    </FrameLayout>
 
     <android.support.v7.widget.AppCompatEditText
         android:id="@+id/intl_phone_edit__phone"

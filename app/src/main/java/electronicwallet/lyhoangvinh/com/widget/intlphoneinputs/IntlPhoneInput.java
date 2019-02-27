@@ -27,6 +27,7 @@ import com.google.i18n.phonenumbers.Phonenumber;
 import java.util.Locale;
 
 import electronicwallet.lyhoangvinh.com.R;
+import electronicwallet.lyhoangvinh.com.base.interfaces.PlainConsumer;
 import electronicwallet.lyhoangvinh.com.local.model.Country;
 
 public class IntlPhoneInput extends RelativeLayout {
@@ -137,6 +138,11 @@ public class IntlPhoneInput extends RelativeLayout {
         inputMethodManager.hideSoftInputFromWindow(mPhoneEdit.getWindowToken(), 0);
     }
 
+    public void hideKeyboard(EditText editText) {
+        InputMethodManager inputMethodManager = (InputMethodManager) getContext().getApplicationContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+        inputMethodManager.hideSoftInputFromWindow(editText.getWindowToken(), 0);
+    }
+
     /**
      * Set default value
      * Will try to retrieve phone number from device
@@ -180,14 +186,19 @@ public class IntlPhoneInput extends RelativeLayout {
     /**
      * Set hint number for country
      */
-    private void setHint(String code) {
+    private void setHint() {
         if (mPhoneEdit != null && mSelectedCountry != null && mSelectedCountry.getIso() != null) {
             Phonenumber.PhoneNumber phoneNumber = mPhoneUtil.getExampleNumberForType(mSelectedCountry.getIso(), PhoneNumberUtil.PhoneNumberType.MOBILE);
             if (phoneNumber != null) {
-//                mPhoneEdit.setHint(mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL));
-                mPhoneEdit.setHint(code);
+                mPhoneEdit.setHint(mPhoneUtil.format(phoneNumber, PhoneNumberUtil.PhoneNumberFormat.NATIONAL));
             }
         }
+    }
+
+    private PlainConsumer<String> stringPlainConsumer;
+
+    public void setDialCodePlainConsumer(PlainConsumer<String> stringPlainConsumer) {
+        this.stringPlainConsumer = stringPlainConsumer;
     }
 
     /**
@@ -204,7 +215,10 @@ public class IntlPhoneInput extends RelativeLayout {
             mPhoneNumberWatcher = new PhoneNumberWatcher(mSelectedCountry.getIso());
             mPhoneEdit.addTextChangedListener(mPhoneNumberWatcher);
 
-            setHint(String.valueOf(mSelectedCountry.getDialCode()));
+//            setHint(String.valueOf(mSelectedCountry.getDialCode()));
+            if (stringPlainConsumer != null) {
+                stringPlainConsumer.accept(String.format("+%s", mSelectedCountry.getDialCode()));
+            }
         }
 
         @Override
