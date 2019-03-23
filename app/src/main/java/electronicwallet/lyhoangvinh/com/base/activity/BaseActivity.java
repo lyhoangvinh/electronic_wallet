@@ -29,6 +29,7 @@ import electronicwallet.lyhoangvinh.com.di.component.DaggerActivityComponent;
 import electronicwallet.lyhoangvinh.com.di.module.ActivityModule;
 import electronicwallet.lyhoangvinh.com.utils.LogHelper;
 import pub.devrel.easypermissions.EasyPermissions;
+import uk.co.chrisjenx.calligraphy.CalligraphyContextWrapper;
 
 public abstract class BaseActivity extends AppCompatActivity implements BaseView, EasyPermissions.PermissionCallbacks  {
 
@@ -96,6 +97,7 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         }
     }
 
+
     public void hideProgressDialog() {
         if (progress_dialog != null && progress_dialog.isShowing()) {
             progress_dialog.dismiss();
@@ -106,6 +108,11 @@ public abstract class BaseActivity extends AppCompatActivity implements BaseView
         ConnectivityManager cm = (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
         NetworkInfo netInfo = cm.getActiveNetworkInfo();
         return netInfo != null && netInfo.isConnected();
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(CalligraphyContextWrapper.wrap(newBase));
     }
 
     @Override
