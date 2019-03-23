@@ -15,15 +15,15 @@ import butterknife.BindView;
 import electronicwallet.lyhoangvinh.com.R;
 import electronicwallet.lyhoangvinh.com.base.adapter.BaseAdapter;
 import electronicwallet.lyhoangvinh.com.base.adapter.BaseViewHolder;
-import electronicwallet.lyhoangvinh.com.base.interfaces.PlainConsumer;
+import electronicwallet.lyhoangvinh.com.base.interfaces.PlainBiConsumer;
 import electronicwallet.lyhoangvinh.com.events.MoneyEvent;
 import electronicwallet.lyhoangvinh.com.local.model.Bank;
 import electronicwallet.lyhoangvinh.com.utils.Utils;
 
 public class BankAdapter extends BaseAdapter<Bank, BankAdapter.BankViewHolder> {
-    private PlainConsumer<String> onClickItemListener;
+    private PlainBiConsumer<String, Integer> onClickItemListener;
 
-    BankAdapter(@NonNull List<Bank> data, PlainConsumer<String> onClickItemListener) {
+    BankAdapter(@NonNull List<Bank> data, PlainBiConsumer<String, Integer> onClickItemListener) {
         super(data);
         this.onClickItemListener = onClickItemListener;
     }
@@ -52,7 +52,7 @@ public class BankAdapter extends BaseAdapter<Bank, BankAdapter.BankViewHolder> {
         }
         holder.itemView.setOnClickListener(view -> {
             if (onClickItemListener != null) {
-                onClickItemListener.accept(dto.getTitle());
+                onClickItemListener.accept(dto.getTitle(), position);
             }
             MoneyEvent moneyEvent = new MoneyEvent();
             moneyEvent.setBank(dto);
