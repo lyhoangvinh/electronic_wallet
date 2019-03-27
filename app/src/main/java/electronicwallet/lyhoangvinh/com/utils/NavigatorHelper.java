@@ -1,7 +1,14 @@
 package electronicwallet.lyhoangvinh.com.utils;
 
 
+import android.app.Activity;
 import android.content.Intent;
+import android.support.v4.app.ActivityOptionsCompat;
+import android.support.v4.util.Pair;
+import android.transition.ChangeBounds;
+import android.transition.Slide;
+import android.view.Gravity;
+import android.view.View;
 
 import electronicwallet.lyhoangvinh.com.R;
 import electronicwallet.lyhoangvinh.com.local.model.PaymentData;
@@ -43,8 +50,29 @@ public class NavigatorHelper {
         }
     }
 
+    public void navigateMainActivity(Activity ctx) {
+        final Pair<View, String>[] pairs = TransitionHelper2.createSafeTransitionParticipants(ctx, false);
+        Intent intent = new Intent(ctx, MainActivity.class);
+        ActivityOptionsCompat options = ActivityOptionsCompat.makeSceneTransitionAnimation(ctx, pairs);
+        ctx.startActivity(intent, options.toBundle());
+        ctx.finish();
+    }
+
     public void navigateContactsFragment() {
         mNavigator.replaceFragment(R.id.container, new ContactsFragment());
+    }
+
+    public void navigateContactsFragment(Activity activity) {
+        // Transition for fragment1
+        Slide slideTransition = new Slide(Gravity.RIGHT);
+        slideTransition.setDuration(activity.getResources().getInteger(R.integer.anim_duration_long));
+        // Create fragment and define some of it transitions
+        ContactsFragment contactsFragment = new ContactsFragment();
+        contactsFragment.setReenterTransition(slideTransition);
+        contactsFragment.setExitTransition(slideTransition);
+        contactsFragment.setSharedElementEnterTransition(new ChangeBounds());
+        mNavigator.replaceFragment(R.id.container, contactsFragment);
+
     }
 
     public void navigatePhoneNumberFragment() {

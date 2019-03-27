@@ -97,7 +97,7 @@ public class PhoneNumberFragment extends BasePresenterFragment<PhoneNumberView, 
                 conFirmInThread(getActivity());
                 break;
             case R.id.tvContacts:
-                navigatorHelper.navigateContactsFragment();
+                navigatorHelper.navigateContactsFragment(getActivity());
                 break;
         }
 
